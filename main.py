@@ -69,13 +69,13 @@ class App(customtkinter.CTk):
         # Preprocess ASM code: add commas between instructions if missing
         asm_lines = preprocess_asm_code(asmRaw)
         
-        #try:
-        gscode_lines = injector_lib.asm_to_gameshark(memory_address_start, asm_lines)
-        self.output.delete("1.0", tk.END)
-        self.output.insert(tk.END, '\n'.join(gscode_lines))
-        #except Exception as e:
-        #    createDialog("Error", "error", "Invalid ASM code.")
-        #    return
+        try:
+            gscode_lines = injector_lib.asm_to_gameshark(memory_address_start, asm_lines)
+            self.output.delete("1.0", tk.END)
+            self.output.insert(tk.END, '\n'.join(gscode_lines))
+        except Exception as e:
+            createDialog("Error", "error", "Invalid ASM code.")
+            return
 
 def preprocess_asm_code(asmRaw):
     # Split by lines
