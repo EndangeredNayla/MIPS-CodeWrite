@@ -10,8 +10,6 @@ import customtkinter as ctk
 from PIL import Image, ImageTk
 from pathlib import Path
 import sys
-import requests
-import sys
 import webbrowser
 import tkinter.filedialog
 import os
